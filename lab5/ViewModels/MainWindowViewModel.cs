@@ -13,11 +13,6 @@ namespace lab5.ViewModels
         string path;
         string waterMark;
 
-        public MainWindowViewModel()
-        {
-            waterMark = "введите хуету";
-        }
-
         public string RegexByLine
         {
             get => regexByLine;
