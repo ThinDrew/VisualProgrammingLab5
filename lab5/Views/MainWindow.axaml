@@ -1,0 +1,74 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:lab5.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="450"
+		Width="450" Height="450"
+        x:Class="lab5.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Regex App">
+
+	<Window.Styles>
+		<Style Selector="Button.s1">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+		</Style>
+	</Window.Styles>
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+			<RowDefinition Height="Auto"></RowDefinition>
+		</Grid.RowDefinitions>
+			
+		<TextBox
+			Text="{Binding Path}"
+			Watermark="{Binding WaterMark}"
+			Name="inputTextBox"
+			HorizontalAlignment="Stretch" 
+			VerticalAlignment="Stretch"
+			AcceptsReturn="True"
+			TextWrapping ="Wrap"
+			Grid.Column="0">
+		</TextBox>
+		<Button 
+			Classes="s1"
+			Grid.Column="0"
+			Grid.Row="1"
+			Name="OpenFileButton"
+			Content="Open File">
+		</Button>
+			
+		<TextBox
+			Text="{Binding RegexByLine}"
+			HorizontalAlignment="Stretch"
+			Name="outputTextBox"
+			VerticalAlignment="Stretch"
+			AcceptsReturn="True"
+			Focusable="False"
+			IsUndoEnabled = "True"
+			TextWrapping ="Wrap"
+			Grid.Column="1">
+		</TextBox>
+		<Button Classes="s1"
+				Grid.Column="1"
+				Grid.Row="1"
+				Name="SaveFileButton"
+				Content="Save File">
+		</Button>
+			
+		<Button Classes="s1"
+				Grid.Row="2"
+				Grid.Column="0"
+				Grid.ColumnSpan="2"
+				Click="ClickEventSetRegexDialog"
+				Content="Set Regex">
+		</Button>
+	</Grid>
+</Window>
